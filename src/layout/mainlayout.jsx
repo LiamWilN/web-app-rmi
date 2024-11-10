@@ -1,5 +1,6 @@
-import React, { createContext, useState } from "react";
-import { Outlet, useLocation, Link } from "react-router-dom";
+import React, { createContext, useState, useEffect } from "react";
+import { Outlet, useLocation } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
 import Navigation from "../components/navigation";
 
 export const UserAccountContext = createContext();
@@ -7,6 +8,12 @@ export const UserAccountContext = createContext();
 const MainLayout = () => {
   const data = useLocation();
   const [dataset, setDataset] = useState(data.state);
+
+  useEffect(() => {
+    if (dataset?.first_name && dataset?.last_name) {
+      toast.success(`Hello, ${dataset.first_name} ${dataset.last_name}`);
+    }
+  }, [dataset]);
 
   return (
     <UserAccountContext.Provider value={dataset}>
@@ -18,6 +25,7 @@ const MainLayout = () => {
           <Outlet />
         </section>
       </main>
+      <ToastContainer autoClose={2000} />
     </UserAccountContext.Provider>
   );
 };

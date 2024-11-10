@@ -1,10 +1,11 @@
 import axios from "axios";
 import Cookies from "js-cookie";
+import { BASE_URL } from "../libs/constants";
 
-const BASE_URL = "https://api.dev.readymaninc.com/api/v1";
+const URL = BASE_URL;
 
 const instance = axios.create({
-  baseURL: BASE_URL,
+  baseURL: URL,
   withCredentials: true,
 
   headers: {

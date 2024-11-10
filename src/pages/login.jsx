@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
 import RMILogo from "../assets/images/rmi-login-icon.png";
 import { Form, replace, useNavigate } from "react-router-dom";
 import { useRef } from "react";
@@ -16,16 +17,25 @@ const Login = () => {
     });
 
     const fetchData = async () => {
+      toast.dismiss();
+      toast.info("Verifying Account");
       try {
         const response = await axios.post("/login", loginData);
         if (response.status === 200 && response.statusText === "OK") {
-          navigateTo("/recruitment", {
-            replace: true,
-            state: response.data.data,
-          });
+          toast.dismiss();
+          toast.success("Login successful!");
+          setTimeout(() => {
+            navigateTo("/recruitment", {
+              replace: true,
+              state: response.data.data,
+            });
+          }, 1000);
         }
       } catch (error) {
         console.error(error);
+        const errorMessage = error.response?.data?.message || "Login failed";
+        toast.dismiss();
+        toast.error(errorMessage);
       }
     };
 
@@ -69,6 +79,7 @@ const Login = () => {
           </p>
         </section>
       </main>
+      <ToastContainer />
     </div>
   );
 };

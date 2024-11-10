@@ -8,6 +8,12 @@ import Settings from "./pages/settings";
 import NotFound from "./pages/notfound";
 import MainLayout from "./layout/mainlayout";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {
+  JobsListings as JobLoaders,
+  ApplicantsListing as ApplicantLoaders,
+  OverviewListing as OverviewLoaders,
+} from "./utils/loaders";
+import "react-toastify/dist/ReactToastify.css";
 
 const router = new createBrowserRouter([
   {
@@ -24,14 +30,20 @@ const router = new createBrowserRouter([
       {
         path: "/recruitment/overview",
         element: <Overview />,
+        loader: OverviewLoaders,
+        errorElement: <NotFound />,
       },
       {
         path: "/recruitment/jobs",
         element: <Jobs />,
+        loader: JobLoaders,
+        errorElement: <NotFound />,
       },
       {
         path: "/recruitment/applicants",
         element: <Applicants />,
+        loader: ApplicantLoaders,
+        errorElement: <NotFound />,
       },
       {
         path: "/recruitment/messages",

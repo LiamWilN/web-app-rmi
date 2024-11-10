@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { NavLink, Link } from "react-router-dom";
-import MenuData from "../assets/json/contents.json";
+import { MENU_ITEMS } from "../libs/constants";
 import RMILogo from "../assets/images/rmi-icon-white.png";
 import RMILogo2 from "../assets/images/rmi-header-white.png";
 import {
@@ -52,15 +52,17 @@ const Navigation = () => {
           <p className={textState(navStatus)}>Navigation</p>
           {navStatus ? <ChevronLeftIcon /> : <ChevronRightIcon />}
         </button>
-        {MenuData.menu.map((item) => {
+        {MENU_ITEMS.menu.map((item) => {
           return (
             <li key={item.id}>
               <NavLink
                 to={item.link}
-                className={({ isActive }) =>
+                className={({ isActive, isPending }) =>
                   `${
                     isActive
                       ? "bg-scd-clr text-prm-clr rounded-md shadow-lg font-semibold"
+                      : isPending
+                      ? "bg-acn-clr text-prm-clr/30 rounded-md shadow-lg font-semibold"
                       : "bg-prm-clr text-scd-clr"
                   }
                   
