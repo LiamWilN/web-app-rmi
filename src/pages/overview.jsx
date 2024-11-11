@@ -1,6 +1,6 @@
 import React from "react";
-import { useLoaderData } from "react-router-dom";
-import { OverviewSection, JobSection } from "../components/sections";
+import { Link, useLoaderData } from "react-router-dom";
+import { OverviewAllSection, RecentJobSection } from "../components/sections";
 
 const Overview = () => {
   const { jobs } = useLoaderData();
@@ -8,12 +8,22 @@ const Overview = () => {
 
   return (
     <main className="w-full h-full overflow-y-scroll">
-      <section className="h-24 p-2">
+      <div className="px-8 pt-8">
         <h1 className="text-prm-clr font-semibold text-2xl">Overview</h1>
+      </div>
+      <section className="h-1/3 w-full">
+        <OverviewAllSection />
       </section>
-      <div className="grid grid-cols-1 grid-rows-2 bg-blue-400 w-full h-full">
-        <OverviewSection />
-        <JobSection />
+      <section className="h-2/3 w-full">
+        <RecentJobSection />
+      </section>
+      <div className="flex items-center justify-center">
+        <Link
+          to="/recruitment/jobs"
+          className="px-8 py-4 bg-prm-clr text-scd-clr font-semibold rounded-lg shadow-lg"
+        >
+          View More
+        </Link>
       </div>
     </main>
   );

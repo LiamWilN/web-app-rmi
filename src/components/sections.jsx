@@ -1,9 +1,9 @@
 import React from "react";
 import { JobCards, OverviewCards } from "./card";
 
-export const OverviewSection = () => {
+export const OverviewAllSection = () => {
   return (
-    <section className="p-2 flex gap-4 justify-center">
+    <section className="h-full w-full py-4 px-8 grid grid-cols-3 grid-rows-1 gap-4 items-center justify-center">
       <OverviewCards />
       <OverviewCards />
       <OverviewCards />
@@ -11,11 +11,14 @@ export const OverviewSection = () => {
   );
 };
 
-export const JobSection = () => {
+export const RecentJobSection = () => {
   return (
-    <section className="p-4 flex flex-col gap-2 w-full h-auto">
-      <JobCards />
-      <JobCards />
+    <section className="p-4 flex flex-col gap-2 w-full h-full">
+      <p className="px-4 text-prm-clr font-semibold text-2xl">Recent Jobs</p>
+      <div className="grid grid-cols-2 grid-rows-1 h-full w-full gap-2">
+        <JobCards />
+        <JobCards />
+      </div>
     </section>
   );
 };
