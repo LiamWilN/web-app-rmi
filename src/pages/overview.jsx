@@ -1,10 +1,13 @@
 import React from "react";
 import { Link, useLoaderData } from "react-router-dom";
-import { OverviewAllSection, RecentJobSection } from "../components/sections";
+import { OverviewAllSection, JobSection } from "../components/sections";
 
 const Overview = () => {
   const { jobs } = useLoaderData();
-  console.log(jobs.data.data);
+
+  const activeJobs = jobs.data.data;
+
+  const recentJobs = jobs.data.data.slice(0, 4);
 
   return (
     <main className="w-full h-full overflow-y-scroll">
@@ -12,10 +15,10 @@ const Overview = () => {
         <h1 className="text-prm-clr font-semibold text-2xl">Overview</h1>
       </div>
       <section className="h-1/3 w-full">
-        <OverviewAllSection />
+        <OverviewAllSection data={activeJobs} />
       </section>
       <section className="h-2/3 w-full">
-        <RecentJobSection />
+        <JobSection data={recentJobs} />
       </section>
       <div className="flex items-center justify-center">
         <Link

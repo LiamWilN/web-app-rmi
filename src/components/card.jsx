@@ -1,10 +1,10 @@
 import React from "react";
 
-export const OverviewCards = () => {
+export const OverviewCards = ({ value }) => {
   return (
-    <section className="w-full h-full rounded-lg shadow-xl flex flex-col bg-scd-clr self-center">
-      <h1 className="text-prm-clr text-xl"></h1>
-      <p></p>
+    <section className="w-full h-full rounded-lg shadow-xl flex flex-col items-center justify-center bg-scd-clr self-center">
+      <p>Active</p>
+      <h1 className="text-prm-clr text-4xl font-bold">{value}</h1>
       <h5></h5>
     </section>
   );

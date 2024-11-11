@@ -24,6 +24,7 @@ const Login = () => {
         if (response.status === 200 && response.statusText === "OK") {
           toast.dismiss();
           toast.success("Login successful!");
+          console.log(response);
           setTimeout(() => {
             navigateTo("/recruitment", {
               replace: true,

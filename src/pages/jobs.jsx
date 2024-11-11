@@ -1,10 +1,15 @@
 import React from "react";
 import { useLoaderData } from "react-router-dom";
+import { JobSection } from "../components/sections";
 
 const Jobs = () => {
   const { jobs } = useLoaderData();
-  console.log(jobs);
-  return <main className="w-full h-full overflow-y-scroll"></main>;
+  const allJobs = jobs.data.data;
+  return (
+    <main className="w-full h-full overflow-y-scroll">
+      <JobSection data={allJobs} />
+    </main>
+  );
 };
 
 export default Jobs;
