@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useLoaderData } from "react-router-dom";
-import { OverviewAllSection, RecentJobSection } from "../components/sections";
+import { OverviewAllSection, JobSection } from "../components/sections";
 
 const Overview = () => {
   const { jobs } = useLoaderData();
@@ -13,7 +13,7 @@ const Overview = () => {
         <h1 className="text-prm-clr font-semibold text-2xl">Overview</h1>
       </div>
       <section className="h-1/3 w-full">
-        <OverviewAllSection />
+        <OverviewAllSection data={activeJobs} />
       </section>
       <section className="h-2/3 w-full">
         <RecentJobSection jobs={recentJobs} />

@@ -1,6 +1,6 @@
 import axios from "axios";
 import Cookies from "js-cookie";
-import { BASE_URL } from "../libs/constants";
+import BASE_URL from "../libs/constants";
 
 const URL = BASE_URL;
 
@@ -16,7 +16,7 @@ const instance = axios.create({
 
 instance.interceptors.request.use(
   async (config) => {
-    const token = Cookies.get("accessToken");
+    const token = Cookies.get("access_token");
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
     }

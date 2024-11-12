@@ -1,4 +1,4 @@
-export const BASE_URL = "https://api.dev.readymaninc.com/api/v1";
+const BASE_URL = "https://api.dev.readymaninc.com/api/v1";
 
 export const MENU_ITEMS = {
   menu: [
@@ -9,3 +9,23 @@ export const MENU_ITEMS = {
     { id: 4, name: "Settings", link: "/recruitment/settings" },
   ],
 };
+
+export const OVERVIEW_ITEMS = [
+  {
+    id: 0,
+    name: "Jobs",
+    link: "/recruitment/jobs",
+  },
+  {
+    id: 1,
+    name: "Applicants",
+    link: "/recruitment/jobs",
+  },
+  {
+    id: 2,
+    name: "Messages",
+    link: "/recruitment/jobs",
+  },
+];
+
+export default BASE_URL;
