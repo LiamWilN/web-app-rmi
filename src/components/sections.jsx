@@ -11,13 +11,14 @@ export const OverviewAllSection = () => {
   );
 };
 
-export const RecentJobSection = () => {
+export const RecentJobSection = ({ jobs }) => {
   return (
     <section className="p-4 flex flex-col gap-2 w-full h-full">
       <p className="px-4 text-prm-clr font-semibold text-2xl">Recent Jobs</p>
-      <div className="grid grid-cols-2 grid-rows-1 h-full w-full gap-2">
-        <JobCards />
-        <JobCards />
+      <div className="flex items-center justify-center h-full w-full gap-2">
+        {jobs.map((item) => {
+          return <JobCards data={item} key={item.id} />;
+        })}
       </div>
     </section>
   );

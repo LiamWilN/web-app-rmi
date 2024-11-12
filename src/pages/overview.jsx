@@ -4,7 +4,8 @@ import { OverviewAllSection, RecentJobSection } from "../components/sections";
 
 const Overview = () => {
   const { jobs } = useLoaderData();
-  console.log(jobs.data.data);
+
+  const recentJobs = jobs.data.data.slice(0, 3);
 
   return (
     <main className="w-full h-full overflow-y-scroll">
@@ -15,7 +16,7 @@ const Overview = () => {
         <OverviewAllSection />
       </section>
       <section className="h-2/3 w-full">
-        <RecentJobSection />
+        <RecentJobSection jobs={recentJobs} />
       </section>
       <div className="flex items-center justify-center">
         <Link
